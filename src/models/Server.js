@@ -5,7 +5,7 @@ export class Server {
   constructor() {
 
     this.app = express();
-    this.app.set('port', 4000);
+    this.port = 4000;
     this.middlewares();
     this.routes();
   }
@@ -17,7 +17,7 @@ export class Server {
 }
 
   routes() {
-    this.app.use(express.urlencoded({ extended: false }));
+
   }
 
   start() {
