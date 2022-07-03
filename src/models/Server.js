@@ -11,11 +11,17 @@ export class Server {
 
   middlewares() {
     this.app.use(cors());
-    this.app.use(express.static('public'));
+    // this.app.use(express.static('public'));
     this.app.use(express.json());
   }
 
-  routes() {}
+  routes() {
+    this.app.use('/', (req, res) => {
+      res.json({
+        message: 'Hello World',
+      });
+    });
+  }
 
   start() {
     this.app.listen(this.port, () => {
