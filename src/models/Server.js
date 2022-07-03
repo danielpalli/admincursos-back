@@ -25,7 +25,7 @@ export class Server {
 
   routes() {
 
-    this.app.use(this.usuariosPath, usuarioRoutes);
+    this.app.use('/api/usuarios', usuarioRoutes);
   }
 
   start() {
