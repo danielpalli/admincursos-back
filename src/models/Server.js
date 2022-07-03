@@ -16,12 +16,11 @@ export class Server {
   }
 
   routes() {
-    this.app.use(express.static('public'));
-    // this.app.use('/', (req, res) => {
-    //   res.json({
-    //     message: 'Hello World',
-    //   });
-    // });
+    this.app.use('/', (req, res) => {
+      res.json({
+        message: 'Hello World',
+      });
+    });
   }
 
   start() {
