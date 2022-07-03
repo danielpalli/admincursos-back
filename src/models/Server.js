@@ -1,11 +1,13 @@
 import express from 'express';
 import cors from 'cors';
+import usuarioRoutes from '../routes/usuarioRoutes.js';
 import { conectarDB } from '../config/db.js';
 
 export class Server {
   constructor() {
     this.app = express();
-    this.port = 4000;
+    this.port = process.env.PORT;
+    this.usuariosPath = '/api/usuarios';
     this.databaseConnect();
     this.middlewares();
     this.routes();
@@ -22,11 +24,8 @@ export class Server {
   }
 
   routes() {
-    this.app.use('/', (req, res) => {
-      res.json({
-        message: 'Hello World',
-      });
-    });
+
+    this.app.use(this.usuariosPath, usuarioRoutes);
   }
 
   start() {
