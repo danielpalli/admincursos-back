@@ -3,7 +3,6 @@ import cors from 'cors';
 
 export class Server {
   constructor() {
-
     this.app = express();
     this.port = 4000;
     this.middlewares();
@@ -11,14 +10,12 @@ export class Server {
   }
 
   middlewares() {
+    this.app.use(cors());
     this.app.use(express.static('public'));
     this.app.use(express.json());
-    this.app.use(cors());
-}
-
-  routes() {
-
   }
+
+  routes() {}
 
   start() {
     this.app.listen(this.port, () => {
