@@ -1,5 +1,5 @@
 {
   "version": 2,
   "builds": [{ "src": "./index.js", "use": "@vercel/node" }],
-  "routes":[    { "src": "/api/(.*)", "dest": "/api/usuarios" }]
+  "routes": [{ "src": "./src/routes/usuarioRoutes.js", "methods": ["GET"],"dest": "./src/routes/usuarioRoutes.js" }]
 }
